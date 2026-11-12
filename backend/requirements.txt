@@ -1,0 +1,33 @@
+# API
+fastapi==0.129.0
+uvicorn[standard]==0.41.0
+python-multipart==0.0.33
+pydantic==2.14.3
+pydantic-settings==2.16.2
+email-validator==2.3.0
+
+# Données
+SQLAlchemy==2.0.46
+alembic==1.18.4
+psycopg[binary]==3.3.8
+
+# Sécurité
+bcrypt==5.0.0
+PyJWT==2.15.1
+
+# Documents
+pymupdf==2.1
+python-docx==1.2.0
+
+# RAG
+chromadb==1.5.9
+sentence-transformers==6.3.0
+torch==2.10.0
+transformers==5.3.0
+rank-bm25==0.2.2
+numpy==2.3.5
+google-genai==3.1.0
+
+# Tests
+pytest==9.0.2
+httpx==0.28.1

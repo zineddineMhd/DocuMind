@@ -1,0 +1,6 @@
+# Uniquement pour réentraîner / évaluer le modèle de recherche (backend/training)
+-r requirements.txt
+datasets==4.8.2
+accelerate==1.13.0
+pandas==2.3.3
+pyarrow

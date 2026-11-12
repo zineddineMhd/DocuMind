@@ -1,0 +1,47 @@
+# DocuMind — lancement local reproductible :
+#   cp .env.example .env   (renseigner GEMINI_API_KEY et JWT_SECRET)
+#   docker compose -f infra/docker-compose.yml up --build
+# Interface : http://localhost:8080   ·   API / OpenAPI : http://localhost:8000/docs
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: documind
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-password}
+      POSTGRES_DB: documind
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U documind"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  backend:
+    build: ../backend
+    env_file: ../.env
+    environment:
+      DATABASE_URL: postgresql+psycopg://documind:${POSTGRES_PASSWORD:-password}@db:5432/documind
+      CHROMA_PATH: /app/data/chroma
+      UPLOAD_DIR: /app/data/uploads
+      ENVIRONMENT: production
+      CORS_ORIGINS: http://localhost:8080
+    volumes:
+      - appdata:/app/data          # fichiers, index ChromaDB, cache des modèles
+      - ../backend/models:/app/models:ro   # modèle de recherche affiné (s'il a été entraîné)
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "8000:8000"
+
+  frontend:
+    build: ../frontend
+    depends_on:
+      - backend
+    ports:
+      - "8080:80"
+
+volumes:
+  pgdata:
+  appdata:

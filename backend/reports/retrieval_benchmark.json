@@ -1,0 +1,105 @@
+{
+  "intfloat/multilingual-e5-small": {
+    "alloprof": {
+      "recall@1": 0.218,
+      "recall@5": 0.408,
+      "recall@10": 0.492,
+      "mrr@10": 0.2969,
+      "ndcg@10": 0.3221,
+      "n_queries": 500,
+      "n_corpus": 2556,
+      "seconds": 292.7
+    },
+    "fquad": {
+      "recall@1": 0.64,
+      "recall@5": 0.88,
+      "recall@10": 0.94,
+      "mrr@10": 0.7545,
+      "ndcg@10": 0.8001,
+      "n_queries": 100,
+      "n_corpus": 945,
+      "seconds": 53.3
+    },
+    "newsquadfr": {
+      "recall@1": 0.6138,
+      "recall@5": 0.7713,
+      "recall@10": 0.8287,
+      "mrr@10": 0.6818,
+      "ndcg@10": 0.717,
+      "n_queries": 870,
+      "n_corpus": 504,
+      "seconds": 18.0
+    },
+    "mean_ndcg@10": 0.6131,
+    "mean_recall@5": 0.6864
+  },
+  "documind-e5-small-ft-cpu300 (ancien : CPU, 300 pas)": {
+    "alloprof": {
+      "recall@1": 0.384,
+      "recall@5": 0.656,
+      "recall@10": 0.718,
+      "mrr@10": 0.4977,
+      "ndcg@10": 0.5299,
+      "n_queries": 500,
+      "n_corpus": 2556,
+      "seconds": 289.9
+    },
+    "fquad": {
+      "recall@1": 0.59,
+      "recall@5": 0.91,
+      "recall@10": 0.94,
+      "mrr@10": 0.7267,
+      "ndcg@10": 0.7799,
+      "n_queries": 100,
+      "n_corpus": 945,
+      "seconds": 52.4
+    },
+    "newsquadfr": {
+      "recall@1": 0.646,
+      "recall@5": 0.8391,
+      "recall@10": 0.8736,
+      "mrr@10": 0.7283,
+      "ndcg@10": 0.7639,
+      "n_queries": 870,
+      "n_corpus": 504,
+      "seconds": 17.6
+    },
+    "mean_ndcg@10": 0.6912,
+    "mean_recall@5": 0.8017
+  },
+  "documind-e5-small-ft": {
+    "alloprof": {
+      "recall@1": 0.43,
+      "recall@5": 0.694,
+      "recall@10": 0.77,
+      "mrr@10": 0.5448,
+      "ndcg@10": 0.5845,
+      "n_queries": 500,
+      "n_corpus": 2556,
+      "seconds": 28.2
+    },
+    "fquad": {
+      "recall@1": 0.66,
+      "recall@5": 0.91,
+      "recall@10": 0.95,
+      "mrr@10": 0.7638,
+      "ndcg@10": 0.8097,
+      "n_queries": 100,
+      "n_corpus": 945,
+      "seconds": 5.2
+    },
+    "newsquadfr": {
+      "recall@1": 0.6874,
+      "recall@5": 0.8575,
+      "recall@10": 0.8966,
+      "mrr@10": 0.7591,
+      "ndcg@10": 0.7926,
+      "n_queries": 870,
+      "n_corpus": 504,
+      "seconds": 1.7
+    },
+    "mean_ndcg@10": 0.7289,
+    "mean_recall@5": 0.8205,
+    "note": "GPU Kaggle T4, 3 époques (522 pas), lots de 64, séquences de 256 ; mesuré sur Kaggle, FQuAD revérifié en local"
+  }
+}

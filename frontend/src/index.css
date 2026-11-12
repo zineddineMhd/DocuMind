@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html, body, #root { height: 100%; }
+  body { @apply bg-[#f6f5fb] text-ink-900 antialiased; font-family: Inter, system-ui, "Segoe UI", Roboto, sans-serif; }
+  :focus-visible { @apply outline-none ring-2 ring-brand-400 ring-offset-1; }
+}
+
+@layer components {
+  .card { @apply rounded-2xl border border-[#e9e7f3] bg-white shadow-card; }
+  .btn { @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold transition disabled:cursor-not-allowed disabled:opacity-50; }
+  .btn-primary { @apply btn bg-brand-600 text-white hover:bg-brand-700; }
+  .btn-ghost { @apply btn border border-[#e3e0f0] bg-white text-ink-700 hover:bg-brand-50; }
+  .btn-danger { @apply btn border border-red-200 bg-white text-red-600 hover:bg-red-50; }
+  .input { @apply w-full rounded-xl border border-[#dddaf0] bg-white px-3.5 py-2.5 text-sm placeholder:text-ink-300 focus:border-brand-400 focus:outline-none focus:ring-2 focus:ring-brand-100; }
+  .icon-btn { @apply inline-flex h-8 w-8 items-center justify-center rounded-lg text-ink-500 transition hover:bg-brand-50 hover:text-brand-700 disabled:opacity-40; }
+  .chip { @apply inline-flex items-center gap-1.5 rounded-full bg-brand-50 px-3 py-1 text-xs font-medium text-brand-800; }
+}
+
+/* Réponses Markdown */
+.answer { @apply text-[15px] leading-relaxed text-ink-900; }
+.answer p { @apply my-2; }
+.answer ul { @apply my-2 list-disc space-y-1.5 pl-5; }
+.answer ol { @apply my-2 list-decimal space-y-1.5 pl-5; }
+.answer h2, .answer h3, .answer h4 { @apply mb-1 mt-4 text-base font-semibold; }
+.answer strong { @apply font-semibold; }
+.answer code { @apply rounded bg-brand-50 px-1 py-0.5 text-[13px]; }
+.answer table { @apply my-3 w-full border-collapse text-sm; }
+.answer th, .answer td { @apply border border-[#e9e7f3] px-2.5 py-1.5 text-left align-top; }
+.answer th { @apply bg-brand-50 font-semibold; }
+.answer blockquote { @apply my-2 border-l-4 border-brand-200 pl-3 text-ink-700; }
+.cite { @apply mx-0.5 inline-flex h-[18px] min-w-[18px] -translate-y-px cursor-pointer items-center justify-center rounded-md bg-brand-100 px-1 text-[11px] font-bold text-brand-700 no-underline transition hover:bg-brand-600 hover:text-white; }
+
+.scroll-thin::-webkit-scrollbar { width: 8px; height: 8px; }
+.scroll-thin::-webkit-scrollbar-thumb { background: #d9d5ec; border-radius: 8px; }
+@keyframes blink { 50% { opacity: 0; } }
+.caret::after { content: "▍"; animation: blink 1s step-start infinite; @apply text-brand-500; }

@@ -1,0 +1,70 @@
+{
+  "intfloat/multilingual-e5-small": {
+    "alloprof": {
+      "recall@1": 0.218,
+      "recall@5": 0.408,
+      "recall@10": 0.494,
+      "mrr@10": 0.2973,
+      "ndcg@10": 0.3228,
+      "n_queries": 500,
+      "n_corpus": 2556,
+      "seconds": 26.7
+    },
+    "fquad": {
+      "recall@1": 0.64,
+      "recall@5": 0.88,
+      "recall@10": 0.94,
+      "mrr@10": 0.7545,
+      "ndcg@10": 0.8001,
+      "n_queries": 100,
+      "n_corpus": 945,
+      "seconds": 5.2
+    },
+    "newsquadfr": {
+      "recall@1": 0.6138,
+      "recall@5": 0.7713,
+      "recall@10": 0.8287,
+      "mrr@10": 0.6818,
+      "ndcg@10": 0.717,
+      "n_queries": 870,
+      "n_corpus": 504,
+      "seconds": 1.7
+    },
+    "mean_ndcg@10": 0.6133,
+    "mean_recall@5": 0.6864
+  },
+  "/kaggle/working/backend/models/documind-e5-small-ft": {
+    "alloprof": {
+      "recall@1": 0.43,
+      "recall@5": 0.694,
+      "recall@10": 0.77,
+      "mrr@10": 0.5448,
+      "ndcg@10": 0.5845,
+      "n_queries": 500,
+      "n_corpus": 2556,
+      "seconds": 28.2
+    },
+    "fquad": {
+      "recall@1": 0.66,
+      "recall@5": 0.91,
+      "recall@10": 0.95,
+      "mrr@10": 0.7638,
+      "ndcg@10": 0.8097,
+      "n_queries": 100,
+      "n_corpus": 945,
+      "seconds": 5.2
+    },
+    "newsquadfr": {
+      "recall@1": 0.6874,
+      "recall@5": 0.8575,
+      "recall@10": 0.8966,
+      "mrr@10": 0.7591,
+      "ndcg@10": 0.7926,
+      "n_queries": 870,
+      "n_corpus": 504,
+      "seconds": 1.7
+    },
+    "mean_ndcg@10": 0.7289,
+    "mean_recall@5": 0.8205
+  }
+}

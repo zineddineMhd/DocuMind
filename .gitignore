@@ -1,0 +1,27 @@
+# Secrets
+.env
+*.env.local
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+.pytest_cache/
+
+# Données locales (base, fichiers importés, index vectoriel, jeux d'entraînement)
+backend/data/
+
+# Poids du modèle affiné (volumineux : à régénérer avec backend/training ou à publier séparément)
+backend/models/
+
+# Frontend
+node_modules/
+frontend/dist/
+
+# Divers
+.DS_Store
+Thumbs.db
+*.log
+
+# Archive du modèle entraîné sur Kaggle (volumineuse)
+kaggle/*.zip
