@@ -37,3 +37,7 @@
 .scroll-thin::-webkit-scrollbar-thumb { background: #d9d5ec; border-radius: 8px; }
 @keyframes blink { 50% { opacity: 0; } }
 .caret::after { content: "▍"; animation: blink 1s step-start infinite; @apply text-brand-500; }
+
+/* Formules mathématiques (KaTeX) dans les réponses */
+.answer .katex { font-size: 1.05em; }
+.answer .katex-display { margin: 0.6em 0; overflow-x: auto; overflow-y: hidden; padding: 2px 0; }

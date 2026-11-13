@@ -1,7 +1,10 @@
 import { AlertTriangle, Check, Copy, SearchX, ThumbsDown, ThumbsUp } from "lucide-react";
 import { useState } from "react";
 import ReactMarkdown from "react-markdown";
+import rehypeKatex from "rehype-katex";
 import remarkGfm from "remark-gfm";
+import remarkMath from "remark-math";
+import "katex/dist/katex.min.css";
 import { api } from "../services/api";
 import type { ChatMessage, Source } from "../types";
 import { DocIcon } from "./ui";
@@ -12,6 +15,11 @@ function withCitations(text: string): string {
   return text
     .replace(/<code>([^<`]*)<\/code>/gi, "`$1`")
     .replace(/<br\s*\/?>/gi, "\n")
+    // formules : \( … \) et \[ … \] deviennent $ … $ et $$ … $$ (syntaxe comprise par remark-math)
+    .replace(/\\\[([\s\S]+?)\\\]/g, (_, m) => `$$${m}$$`)
+    .replace(/\\\(([\s\S]+?)\\\)/g, (_, m) => `$${m}$`)
+    // accolades d'ensemble écrites sans antislash dans une formule : D = {(x, y)} -> D = \{(x, y)\}
+    .replace(/\$([^$\n]+)\$/g, (_, m) =>`$${m.replace(/(=\s*)\{(\s*\()([^$]*\))\}/g, "$1\\{$2$3\\}")}$`)
     .replace(/\[S(\d+)\]/g, (_, n) => `[${n}](#cite-S${n})`);
 }
 
@@ -19,7 +27,8 @@ export function AnswerBody({ text, sources, onCite, streaming }:
   { text: string; sources: Source[]; onCite: (s: Source) => void; streaming?: boolean }) {
   return (
     <div className={`answer ${streaming ? "caret" : ""}`}>
-      <ReactMarkdown remarkPlugins={[remarkGfm]} components={{
+      <ReactMarkdown remarkPlugins={[remarkGfm, remarkMath]}
+        rehypePlugins={[[rehypeKatex, { throwOnError: false, strict: false }]]} components={{
         a({ href, children }) {
           if (href?.startsWith("#cite-")) {
             const src = sources.find((s) => s.source_id === href.slice(6));
